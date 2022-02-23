@@ -44,6 +44,10 @@ gem "bootsnap", require: false
 
 gem "webpacker"
 
+gem "rest-client"
+
+gem "dotenv"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
