@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Media from './Media';
 
 export default function Search() {
     const [query, setQuery] = useState('');
@@ -13,9 +14,9 @@ export default function Search() {
             setMovies(data.Search);
         }
         if (query !== "") {
-            search()
+            search();
         }
-    }, [query])
+    }, [query]);
 
     return(
         <>
@@ -30,7 +31,7 @@ export default function Search() {
             {movies ?
                 <>
                     <Typography variant="h5">Search result</Typography>
-                    {movies.map(item => <p>{item.Title}</p>)}
+                    {movies.map(item => <Media media={item} />)}
                 </> : 
                     <p>No movies found</p>
             }
