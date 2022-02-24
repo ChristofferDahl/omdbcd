@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-export default function Media({ media }) {
+export default function Media({ media, favorite = true }) {
     const addToFavorites = (id) => {
         const data = { "favorite": {"omdbid": id} };
 
@@ -51,9 +51,11 @@ export default function Media({ media }) {
             image={media.Poster}
             alt="Poster"
         />
-        <CardActions>
-        <Button size="small" onClick={() => addToFavorites(media.imdbID)} value={media.imdbID}>Add to favorites</Button>
-        </CardActions>
+        {favorite &&
+            <CardActions>
+                <Button size="small" onClick={() => addToFavorites(media.imdbID)} value={media.imdbID}>Add to favorites</Button>
+            </CardActions>
+        }
       </Card>
     )
 }

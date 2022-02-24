@@ -5,10 +5,6 @@ class FavoritesController < ApplicationController
 
   # GET /favorites or /favorites.json
   def index
-    Favorite.all.each do |item|
-      favorite = search_by_id(item.omdbid)
-      puts favorite
-    end
     @favorites = Favorite.all
   end
 

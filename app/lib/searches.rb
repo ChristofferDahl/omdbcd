@@ -18,9 +18,8 @@ module Searches
         response = RestClient.get(url)
     end
 
-    def search_by_id(id)
-        puts id
-        url = "http://www.omdbapi.com/?i=#{id}&apikey="+ENV["API_KEY"]
+    def search_by_id(omdbId)
+        url = "http://www.omdbapi.com/?i=#{omdbId}&apikey="+ENV["API_KEY"]
         response = RestClient.get(url)
     end
 end

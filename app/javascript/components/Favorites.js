@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Favorite from './Favorite';
+
 
 export default function Favorites() {
     const [favorites, setFavorites] = useState([]);
@@ -15,8 +17,8 @@ export default function Favorites() {
 
     return(
         <>
-            {favorites ? 
-                <>{favorites.map(item => <p><b>Omdbid:</b>{item.omdbid}</p>)}</>
+            {favorites ?
+                <>{favorites.map(item => <Favorite id={item.omdbid}/>)}</>
                 : <p>No favorites yet!</p>
             }
        </>
