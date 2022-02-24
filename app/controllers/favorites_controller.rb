@@ -1,8 +1,14 @@
 class FavoritesController < ApplicationController
+  include Searches
+  skip_before_action :verify_authenticity_token
   before_action :set_favorite, only: %i[ show edit update destroy ]
 
   # GET /favorites or /favorites.json
   def index
+    Favorite.all.each do |item|
+      favorite = search_by_id(item.omdbid)
+      puts favorite
+    end
     @favorites = Favorite.all
   end
 
