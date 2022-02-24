@@ -78,7 +78,7 @@ export default function Search() {
             </div>
             {movies ?
                 <>
-                    {movies.map(item => <Media media={item} />)}
+                    {movies.map(item => <Media key={item.imdbID} media={item} />)}
                 </> : 
                     <p>No results found</p>
             }

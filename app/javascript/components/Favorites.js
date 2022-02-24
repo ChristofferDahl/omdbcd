@@ -18,7 +18,7 @@ export default function Favorites() {
     return(
         <>
             {favorites ?
-                <>{favorites.map(item => <Favorite id={item.omdbid}/>)}</>
+                <>{favorites.map(item => <Favorite key={item.id} id={item.id} omdbId={item.omdbid}/>)}</>
                 : <p>No favorites yet!</p>
             }
        </>

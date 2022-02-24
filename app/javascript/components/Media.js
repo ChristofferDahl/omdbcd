@@ -7,12 +7,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-export default function Media({ media, favorite = true }) {
-    const addToFavorites = (id) => {
-        const data = { "favorite": {"omdbid": id} };
+export default function Media({ media, favorite = false, id=0 }) {
+    const addToFavorites = (omdbId, favorite, id) => {
+        const data = { "favorite": {"omdbid": omdbId} };
+        const url = id > 0 ? 'http://localhost:3000/favorites/'+id+'.json' : 'http://localhost:3000/favorites.json'
 
-        fetch('http://localhost:3000/favorites.json', {
-            method: 'POST',
+        fetch(url, {
+            method: favorite ? 'DELETE' : 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -51,11 +52,9 @@ export default function Media({ media, favorite = true }) {
             image={media.Poster}
             alt="Poster"
         />
-        {favorite &&
-            <CardActions>
-                <Button size="small" onClick={() => addToFavorites(media.imdbID)} value={media.imdbID}>Add to favorites</Button>
-            </CardActions>
-        }
+        <CardActions>
+            <Button size="small" onClick={() => addToFavorites(media.imdbID, favorite, id)} value={media.imdbID}>{favorite ? 'Remove favorite' : 'Add to favorites'}</Button>
+        </CardActions>
       </Card>
     )
 }
