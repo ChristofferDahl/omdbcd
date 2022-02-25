@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites:
 
-Things you may want to cover:
+Create a .env file in root directory with:
+  * API_KEY - which should be your OMDB api key
+  * REACT_APP_DEPLOY_URL - which should be the url where the app runs, if ran locally probably: http://localhost:3000
 
-* Ruby version
+Run the following commands set up your environment:
+  * bundle install
 
-* System dependencies
+  * bundle exec rails webpacker:install
 
-* Configuration
+  * bundle exec rails webpacker:install:react
 
-* Database creation
+  * rails webpacker:compile
 
-* Database initialization
+  * rails db:migrate
 
-* How to run the test suite
+## Tests:
 
-* Services (job queues, cache servers, search engines, etc.)
+The tests can be executed with the following command in the root directory:
+  * yarn test
 
-* Deployment instructions
-
-* ...
