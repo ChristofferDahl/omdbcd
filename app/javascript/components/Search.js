@@ -48,7 +48,7 @@ export default function Search() {
           value={query}
           onChange={e => setQuery(e.target.value)}
         />
-        <button type="button" onClick={handleSubmit}>Search</button>
+        <button class="button" type="button" onClick={handleSubmit}>Search</button>
       </div>
       <div className="SearchSegment">
         <FormControl style={{minWidth: 120 }}>

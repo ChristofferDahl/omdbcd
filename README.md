@@ -17,6 +17,10 @@ Run the following commands set up your environment:
 
   * rails db:migrate
 
+## Known issue:
+When running with node v17.6.0 Webpacker compiliation may fail.
+Known version to work: node v16.13.0
+
 ## Tests:
 
 The tests can be executed with the following command in the root directory:
