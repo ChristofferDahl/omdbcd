@@ -36,52 +36,52 @@ export default function Search() {
     setSubmit(true);
   };
 
-    return(
-      <>
-        <div className="SearchSegment">
-          <TextField
-            style={{paddingRight: 8}}
-            id="search"
-            label="Search"
-            type="search"
-            variant="standard"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-          />
-          <button type="button" onClick={handleSubmit}>Search</button>
-        </div>
-        <div className="SearchSegment">
-          <FormControl style={{minWidth: 120 }}>
-            <InputLabel id="search-type">Type</InputLabel>
-            <Select
-              labelId="search-type"
-              id="search-type"
-              value={searchType}
-              label="Type"
-              onChange={handleChange}
-            >
-              <MenuItem value={"all"}>All</MenuItem>
-              <MenuItem value={"movie"}>Movie</MenuItem>
-              <MenuItem value={"game"}>Game</MenuItem>
-              <MenuItem value={"series"}>Series</MenuItem>
-            </Select>
-          </FormControl>
-            <div className="SearchYear">
-              <TextField
-                id="year"
-                label="Year"
-                type="year"
-                value={year}
-                onChange={e => setYear(e.target.value)}
-              />
-            </div>
-        </div>
-        {movies ?
-          <>
-            {movies.map(item => <Media key={item.imdbID} media={item} />)}
-          </> :
-          <p>No results found</p>
-        }
-      </>
-    )
+  return(
+    <>
+      <div className="SearchSegment">
+        <TextField
+          style={{paddingRight: 8}}
+          id="search"
+          label="Search"
+          type="search"
+          variant="standard"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+        <button type="button" onClick={handleSubmit}>Search</button>
+      </div>
+      <div className="SearchSegment">
+        <FormControl style={{minWidth: 120 }}>
+          <InputLabel id="search-type">Type</InputLabel>
+          <Select
+            labelId="search-type"
+            id="search-type"
+            value={searchType}
+            label="Type"
+            onChange={handleChange}
+          >
+            <MenuItem value={"all"}>All</MenuItem>
+            <MenuItem value={"movie"}>Movie</MenuItem>
+            <MenuItem value={"game"}>Game</MenuItem>
+            <MenuItem value={"series"}>Series</MenuItem>
+          </Select>
+        </FormControl>
+          <div className="SearchYear">
+            <TextField
+              id="year"
+              label="Year"
+              type="year"
+              value={year}
+              onChange={e => setYear(e.target.value)}
+            />
+          </div>
+      </div>
+      {movies ?
+        <>
+          {movies.map(item => <Media key={item.imdbID} media={item} />)}
+        </> :
+        <p>No results found</p>
+      }
+    </>
+  );
 }

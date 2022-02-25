@@ -15,6 +15,20 @@
     "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^27.5.1",
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "roots": [
+      "test/javascript"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/test/javascript/styleMock.js"
+    }
   }
 }
