@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Media from './Media';
+import { deployUrl } from '../config/app.config'
 
 export default function Favorites({ id, omdbId }) {
-    const [favorite, setFavorite] = useState({});
+  const [favorite, setFavorite] = useState({});
+  useEffect(() => {
+    const getFavorite = async () => {
+      const response = await fetch(deployUrl+'/getMedia?omdbId='+omdbId);
+      const data = await response.json();
+      setFavorite(data);
+    }
 
-    useEffect(() => {
-        const getFavorite = async () => {
-            const response = await fetch('http://localhost:3000/getMedia?omdbId='+omdbId);
-            const data = await response.json();
-            setFavorite(data);
-        }
-        
-        getFavorite();
-    }, []);
+    getFavorite();
+  }, []);
 
-    return(
-        <>
-            <Media media={favorite} favorite={true} id={id} />
-       </>
-    );
+  return(
+    <>
+      <Media media={favorite} favorite={true} id={id} />
+    </>
+  );
 }

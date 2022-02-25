@@ -1,0 +1,1 @@
+export const deployUrl = process.env.REACT_APP_DEPLOY_URL;

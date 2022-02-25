@@ -1,0 +1,14 @@
+.MediaInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.TypeText {
+  font-size: 0.8rem;
+  color: #686665 ;
+}
+
+.Poster {
+  max-width: 150px;
+  padding-left: 16px;
+}
